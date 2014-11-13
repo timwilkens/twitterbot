@@ -12,7 +12,7 @@ type TBot struct {
 	keys *Keys
 }
 
-func NewBot(config string) (*TBot, error) {
+func New(config string) (*TBot, error) {
 	keys, err := ReadConfig(config)
 	if err != nil {
 		return nil, err
@@ -29,7 +29,7 @@ type TweetCreator interface {
 	NextTweet() string
 }
 
-func (t *TBot) RunBot(creator TweetCreator) {
+func (t *TBot) Run(creator TweetCreator) {
 	var previousTweet string
 
 	for {
