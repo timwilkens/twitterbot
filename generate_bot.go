@@ -9,7 +9,6 @@ import (
 
 type TBot struct {
 	api  *anaconda.TwitterApi
-	keys *Keys
 }
 
 func New(config string) (*TBot, error) {
@@ -22,7 +21,7 @@ func New(config string) (*TBot, error) {
 	anaconda.SetConsumerSecret(keys.consumerSecret)
 	api := anaconda.NewTwitterApi(keys.accessPublic, keys.accessSecret)
 
-	return &TBot{api, keys}, nil
+	return &TBot{api}, nil
 }
 
 type TweetCreator interface {
